@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sister's Birthday Invitation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .invitation-card {
+      width: 300px;
+      height: 400px;
+      background-color: #000;
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+    .invitation-card:hover {
+      transform: scale(1.1);
+    }
+    .invitation-card img {
+      width: 100%;
+      object-fit: cover;
+    }
+    .invitation-message {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .invitation-card.open .invitation-message {
+      display: block;
+    }
+    .invitation-card.open {
+      animation: cardOpen 1s ease-in-out forwards;
+    }
+    @keyframes cardOpen {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .button {
+      background-color: #f7b700;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .button:hover {
+      background-color: #f0a500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invitation-card" onclick="openInvitation()">
+    <img src="https://via.placeholder.com/300x400.png?text=Birthday+Invitation" alt="Invitation Image">
+    <div class="invitation-message">
+      <h2>Happy Birthday, Sister!</h2>
+      <p>You're the best! I hope you have an amazing day!</p>
+      <button class="button" onclick="alert('Can\'t wait to celebrate!')">RSVP</button>
+    </div>
+  </div>
+
+  <script>
+    function openInvitation() {
+      const card = document.querySelector('.invitation-card');
+      card.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
